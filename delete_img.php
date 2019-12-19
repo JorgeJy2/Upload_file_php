@@ -10,12 +10,13 @@
     <?php 
         $filename = "images/". $_REQUEST['image'];
         if (file_exists($filename)) {
-          unlink($filename);
-          echo 'File '.$filename.' has been deleted';
+          if (unlink($filename))
+            header('Location: ./view_image.php');
+          else
+             echo 'Could not delete '.$filename.', file does not exist';
         } else {
           echo 'Could not delete '.$filename.', file does not exist';
         }
-
     ?>
 </body>
 </html>

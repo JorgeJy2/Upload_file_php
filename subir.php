@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>upload</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </head>
 <body>
@@ -23,18 +23,19 @@
                 if($archivo != ""){
                     //Guardamos el archivo
                     // $destino = "images/".$prefijo."_".$archivo;
-                    $destino = "images/$archivo";
-                    
+                    $destino = "images/$archivo";      
                     // echo($destino);
                     if(copy($_FILES['archivo']['tmp_name'],$destino)){
-                      echo  $status = "Archivo subido: <b> ".$archivo." </b>";
+                    //   header('Location: ./view_image.php');      
                       echo "<script>
                       Swal.fire(
                         'Good!',
                         'Image upload!',
                         'success'
-                      )
-                      </script>";      
+                      ).then(()=>{
+                        window.location = './view_image.php';
+                      });
+                      </script>";
                     } else
                         echo 'Error al subir el archivo';
                 }else 
