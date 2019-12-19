@@ -59,7 +59,7 @@
             echo '      </div>';
             echo '      <div class="card-content">';
             echo '        <span class="card-title">' . $valor . '</span>';
-            echo '        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>';
+            echo '        <p>Image ('. $valor . ') saved on server. With a weight ' . filesize("images/$valor") . ' bytes .</p>';
             echo '      </div>';
             echo '    </div>';
             echo '  </div>';
