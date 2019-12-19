@@ -8,10 +8,20 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/view_image.css">
+
 </head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.materialboxed');
+        var instances = M.Materialbox.init(elems, {});
+        elems.open();
+    });
+</script>
 
 <body>
+
     <nav>
         <div class="nav-wrapper  red">
             <a href="#" class="brand-logo center">Upload images</a>
@@ -21,38 +31,44 @@
             </ul>
         </div>
     </nav>
-
-    <div class="container">
-
-        <div>
-            <h5 class="center-align">Can you upload you favorite image.</h5>
-        </div>
-
-        <div class="row">
-            <form class="col s12" action="subir.php" method="post" enctype="multipart/form-data">
-                <div class="row">
-                    <div class="col s12 ">
-                        <div class="file-field">
-                            <div class="btn  red">
-                                <span>Browse</span>
-                                <input name="archivo" required accept="image/*" type="file" />
-                            </div>
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text" placeholder="Upload file" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col s12">
-                        <button type="submit" class=" red btn btn-block"><i class="material-icons right">cloud</i>Add image</button>
-                        <input name="action" type="hidden" value="upload" />
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
+    <?php
+    function showFiles($path)
+    {
+        $dir = opendir($path);
+        $files = array();
+        while ($current = readdir($dir)) {
+            if ($current != "." && $current != "..") {
+                if (is_dir($path . $current))
+                    showFiles($path . $current . '/');
+                else
+                    $files[] = $current;
+            }
+        }
+        echo '<ul>';
+        foreach ($files as &$valor) {
+            // echo "<li>$valor</li>";
+            // echo "<img src='./images/$valor'>";
+            echo '  <div class="row center_background">';
+            echo '  <div class="col s12 m8 center_card">';
+            echo '    <div class="card">';
+            echo '      <div class="card-image">';
+            echo '          <div class="card_img">';
+            echo '              <img class="materialboxed image_view" width="650"  src="./images/' . $valor . '">';
+            echo '          </div>';
+            echo '        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">delete</i></a>';
+            echo '      </div>';
+            echo '      <div class="card-content">';
+            echo '        <span class="card-title">' . $valor . '</span>';
+            echo '        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>';
+            echo '      </div>';
+            echo '    </div>';
+            echo '  </div>';
+            echo '</div>';
+        }
+        echo '</ul>';
+    }
+    showFiles('images/');
+    ?>
 
     <footer class="page-footer  red">
         <div class="container">
@@ -78,7 +94,6 @@
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <div class="fixed-action-btn">
         <a class="btn-floating btn-large red">
@@ -96,6 +111,7 @@
             var instancesFloatingButton = M.FloatingActionButton.init(elemsFloatingButton, {});
         });
     </script>
+
 </body>
 
 </html>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </head>
 <body>
     <?php
@@ -14,17 +15,26 @@
                 $file_size = $_FILES['archivo']['size'];
                 $file_type = $_FILES['archivo']['type'];
                 $archivo = $_FILES['archivo']['name'];
-                $prefijo =  substr(md5(uniqid(rand())),0,6);
+                // $prefijo =  substr(md5(uniqid(rand())),0,6);
                 echo($file_size);
                 echo($file_type);
                 echo($archivo);
-                echo($prefijo);
+                // echo($prefijo);
                 if($archivo != ""){
                     //Guardamos el archivo
-                    $destino = "images/".$prefijo."_".$archivo;
+                    // $destino = "images/".$prefijo."_".$archivo;
+                    $destino = "images/$archivo";
+                    
                     // echo($destino);
                     if(copy($_FILES['archivo']['tmp_name'],$destino)){
                       echo  $status = "Archivo subido: <b> ".$archivo." </b>";
+                      echo "<script>
+                      Swal.fire(
+                        'Good!',
+                        'Image upload!',
+                        'success'
+                      )
+                      </script>";      
                     } else
                         echo 'Error al subir el archivo';
                 }else 
@@ -34,5 +44,6 @@
         }else
             echo('action');
     ?>
+
 </body>
 </html>
