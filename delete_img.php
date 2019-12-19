@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Delete img</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </head>
+
 <body>
-    <?php 
-        $filename = "images/". $_REQUEST['image'];
-        if (file_exists($filename)) {
-          if (unlink($filename))
-            header('Location: ./view_image.php');
-          else
-             echo 'Could not delete '.$filename.', file does not exist';
-        } else {
-          echo 'Could not delete '.$filename.', file does not exist';
-        }
-    ?>
+  <?php
+  include './message.php';
+  //get name in url param
+  $filename = "images/" . $_REQUEST['image'];
+  if (file_exists($filename)) {
+    if (unlink($filename)) //delete file
+      header('Location: ./view_image.php');
+    else
+      showMsgError('Could not delete ' . $filename, './view_image.php');
+  } else
+    showMsgError('Could not delete ' . $filename . ', file does not exist', './view_image.php');
+  ?>
 </body>
+
 </html>
