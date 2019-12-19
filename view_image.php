@@ -55,7 +55,7 @@
             echo '          <div class="card_img">';
             echo '              <img class="materialboxed image_view" width="650"  src="./images/' . $valor . '">';
             echo '          </div>';
-            echo '        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">delete</i></a>';
+            echo '        <a href="delete_img.php?image='.$valor.'" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">delete</i></a>';
             echo '      </div>';
             echo '      <div class="card-content">';
             echo '        <span class="card-title">' . $valor . '</span>';
