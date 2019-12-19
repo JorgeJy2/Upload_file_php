@@ -25,7 +25,6 @@
       // echo($archivo);
       // echo($prefijo);
       if ($archivo != "") {
-        //Guardamos el archivo
         // $destination = "images/".$prefijo."_".$archivo;
         $destination = "images/$archivo";
         // echo($destination);
