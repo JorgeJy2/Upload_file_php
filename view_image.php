@@ -44,6 +44,13 @@
                     $files[] = $current;
             }
         }
+        
+        if(sizeof($files)==0){
+            echo '<div class="row center-align">';
+            echo '  <h4>Images empy</h4>';
+            echo '  <img width="20%" class="image_presentation" src="assets/images/img_presentation.svg" alt="" srcset="">';
+            echo '</div>';
+        }
         echo '<ul>';
         foreach ($files as &$valor) {
             // echo "<li>$valor</li>";

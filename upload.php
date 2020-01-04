@@ -34,7 +34,7 @@
         if (in_array($file_type, $format_acept_img)) {
           if (copy($_FILES['archivo']['tmp_name'], $destination))
             //   header('Location: ./view_image.php');
-            showMsgOk('Image upload! TYPE: ' . $file_type, './view_image.php');
+            showMsgOk('Image upload!', './view_image.php');
           else
             showMsgError('Could not delete', './index.html');
         }else
