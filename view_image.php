@@ -55,11 +55,11 @@
             echo '          <div class="card_img">';
             echo '              <img class="materialboxed image_view" width="650"  src="./images/' . $valor . '">';
             echo '          </div>';
-            echo '        <a href="delete_img.php?image='.$valor.'" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">delete</i></a>';
+            echo '        <a href="delete_img.php?image=' . $valor . '" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">delete</i></a>';
             echo '      </div>';
             echo '      <div class="card-content">';
             echo '        <span class="card-title">' . $valor . '</span>';
-            echo '        <p>Image ('. $valor . ') saved on server. With a weight ' . filesize("images/$valor") . ' bytes .</p>';
+            echo '        <p>Image (' . $valor . ') saved on server. With a weight ' . filesize("images/$valor") . ' bytes .</p>';
             echo '      </div>';
             echo '    </div>';
             echo '  </div>';
@@ -70,18 +70,18 @@
     showFiles('images/');
     ?>
 
-    <footer class="page-footer  red">
+    <footer class="page-footer red">
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
                     <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                    <p class="grey-text text-lighten-4">This's a simple footer and simple description.</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
+                    <h5 class="white-text">More information</h5>
                     <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://github.com/jorgeJy2">My GitHub</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://twitter.com/jorge_jacobo_jy">My twitter</a></li>
                     </ul>
                 </div>
             </div>
@@ -100,8 +100,8 @@
             <i class="large material-icons">more</i>
         </a>
         <ul>
-            <li><a href="index.html" class="btn-floating red"><i class="material-icons">attach_file</i></a></li>
-            <li><a href="view_image.php" class="btn-floating yellow darken-1"><i class="material-icons">add</i></a></li>
+            <li><a href="view_image.php" class="btn-floating red"><i class="material-icons">attach_file</i></a></li>
+            <li><a href="index.html" class="btn-floating yellow darken-1"><i class="material-icons">add</i></a></li>
         </ul>
     </div>
 
