@@ -14,3 +14,9 @@ footer {
 .image_presentation {
     width: 15%;
 }
+
+.brand-logo {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
